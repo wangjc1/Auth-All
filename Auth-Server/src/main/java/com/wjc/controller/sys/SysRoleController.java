@@ -76,9 +76,9 @@ public class SysRoleController {
         log.info("{}, body: {}", oper, body);
 
         JSONObject jsonObj = JSON.parseObject(body);
-        String rid = jsonObj.getString("rid");
+        Long rid = jsonObj.getLong("rid");
 
-        if (StringUtils.isBlank(rid)) {
+        if (rid == null) {
             return Json.fail(oper, "无法删除角色：参数为空（角色id）");
         }
 
